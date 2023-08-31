@@ -1,0 +1,61 @@
+***Cmos_Project_1
+
+Vx 11 0 pulse(0 5 0 0 0 10m 20m)
+Vy 12 0 pulse(0 5 0 0 0 10m 20m)
+Vz 15 0 dc 5v
+vdd 2 0 dc 5v
+
+
+.model nmod nmos version=54 level=4.7
+.model pmod pmos version=54 level=4.7
+
+m11 13 11 0 0 nmod w=100u l=10u
+m12 13 11 2 2 pmod w=100u l=10u
+
+m13 14 12 0 0 nmod w=100u l=10u
+m14 14 12 2 2 pmod w=100u l=10u
+
+m15 16 15 0 0 nmod w=100u l=10u
+m16 16 15 2 2 pmod w=100u l=10u
+
+m17 19 13 17 17 nmod w=100u l=10u
+m18 17 14 18 18 nmod w=100u l=10u
+m19 18 16 0 0 nmod w=100u l=10u
+m20 19 13 2 2 pmod w=100u l=10u
+m21 19 14 2 2 pmod w=100u l=10u
+m22 19 16 2 2 pmod w=100u l=10u
+
+m23 22 13 20 20 nmod w=100u l=10u
+m24 20 12 21 21 nmod w=100u l=10u
+m25 21 16 0 0 nmod w=100u l=10u
+m26 22 13 2 2 pmod w=100u l=10u
+m27 22 12 2 2 pmod w=100u l=10u
+m28 22 16 2 2 pmod w=100u l=10u
+
+m29 25 11 23 23 nmod w=100u l=10u
+m30 23 14 24 24 nmod w=100u l=10u
+m31 24 16 0 0 nmod w=100u l=10u
+m32 25 11 2 2 pmod w=100u l=10u
+m33 25 14 2 2 pmod w=100u l=10u
+m34 25 16 2 2 pmod w=100u l=10u
+
+m35 28 11 26 26 nmod w=100u l=10u
+m36 26 12 27 27 nmod w=100u l=10u
+m37 27 16 0 0 nmod w=100u l=10u
+m38 28 11 2 2 pmod w=100u l=10u
+m39 28 12 2 2 pmod w=100u l=10u
+m40 28 16 2 2 pmod w=100u l=10u
+
+
+.tran 0.1m 100m
+.control
+run
+set color0 = white
+set color1 = black
+set xbrushwidth =4.5
+plot V(19) V(11) V(12) V(15) title "s1"
+plot V(22) V(11) V(12) V(15)  title "s2"
+plot V(25) V(11) V(12) V(15) title "s3"
+plot V(28) V(11) V(12) V(15) title "s4"
+.endc
+.end
